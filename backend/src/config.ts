@@ -1,0 +1,4 @@
+
+
+export const JWT_SECRET_CREATOR = "CREATOR"
+export const JWT_SECRET_WORKER = "WORKER"

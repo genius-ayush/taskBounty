@@ -1,0 +1,142 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User{
+  id              String    @id @default(uuid())
+  username        String   
+  email           String    @unique
+  passwordHash   String
+  walletAddress  String?
+  role            Role
+  points          Int      @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  //Reationships
+
+  surveys         Survey[]    
+  responses       Response[]
+  transactions    Transaction[]
+
+}
+
+enum Role{
+  CREATOR
+  WORKER
+}
+
+
+model Task{
+
+  id               String       @id @default(uuid())
+  taskType         TaskType
+  taskId           String 
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+}
+
+enum TaskType{
+  SURVEY 
+  VIDEO 
+  GAME
+}
+
+model Survey{
+
+  id                  String     @id @default(uuid())
+  creatorId           String 
+  title               String
+  description         String?
+  totalQuestions      Int
+  pointsPerCompletion Int
+  amountDeopsited     Float
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+
+
+  //Reationships
+  creator             User       @relation(fields: [creatorId], references: [id])
+  questions           Question[]
+  responses           Response[]
+
+}
+
+model Question{
+
+  id                  String      @id @default(uuid())
+  surveyId            String
+  questionText        String
+
+  //Relationships
+
+  survey              Survey      @relation(fields:[surveyId] , references: [id])
+  choices             Choice[]
+  answer              Response[]
+}
+
+model Choice{
+
+  id                  String      @id @default(uuid())
+  questionId          String
+  choiceText          String
+
+
+  //Relationships
+  question            Question   @relation(fields:[questionId] , references: [id])
+  responses           Response[]
+
+}
+
+model Response{
+
+  id                 String       @id @default(uuid())
+  workerId           String
+  surveyId           String
+  questionId         String
+  choiceId           String
+  responseTime       DateTime     @default(now())
+
+  
+  //Reationships
+  worker             User         @relation(fields: [workerId], references: [id])
+  survey             Survey       @relation(fields: [surveyId], references: [id])
+  question           Question     @relation(fields: [questionId], references: [id])
+  choice             Choice       @relation(fields: [choiceId], references: [id])
+}
+
+model Transaction{
+
+  id                 String      @id @default(uuid())
+  userId             String
+  surveyId           String?
+  amount             Float
+  transactionType    TransactionType
+  transactionDate    DateTime    @default(now())
+
+  //Relationships
+  user              User        @relation(fields: [userId], references: [id])
+  //survey            Survey?     @relation(fields: [surveyId], references: [id])
+
+}
+
+enum TransactionType{
+  DEPOSIT 
+  WITHDRAWAL
+}
+
+
+
+
