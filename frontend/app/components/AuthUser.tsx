@@ -55,7 +55,7 @@ export default function AuthUser() {
       <div className="w-full max-w-md">
         <h1 className="text-2xl font-bold text-center mb-8">
           {isLogin ? 'Login as user' : 'Create an account as user'}
-        </h1>
+        </h1> 
         <div className="p-8 rounded-lg shadow-lg dark:bg-[#1a1a2e] bg-white">
           <form onSubmit={handleSubmit} className="space-y-6">
             {!isLogin && (
@@ -71,7 +71,7 @@ export default function AuthUser() {
               </div>
             )}
             <div className="space-y-2">
-              <Label htmlFor="email">Email address</Label>
+              <Label htmlFor="email">Email address</Label>  
               <Input
                 id="email"
                 type="email"

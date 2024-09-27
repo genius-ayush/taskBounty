@@ -38,7 +38,7 @@ function page() {
     {/* <LandingPage/> */}
     {/* <AuthPage/> */}
 
-    <Sidebar/>
+    
     </div>
     </>
   )

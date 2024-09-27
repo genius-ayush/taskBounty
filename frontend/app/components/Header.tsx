@@ -70,7 +70,7 @@ export default function Header() {
             <NavLinks />
             <SelectTheme/>
           </nav>
-        )}
+        )} 
       </header>
       {isMobile && mobileMenuOpen && (
         <div className={`absolute top-16 left-0 right-0 z-40 ${darkMode ? 'bg-gray-800' : 'bg-white'} border-b ${darkMode ? 'border-gray-700' : 'border-gray-200'}`}>
