@@ -5,7 +5,7 @@ import LandingPage from './landingPage/page'
 // import LandingPage2 from './components/landingPage'
 import { useState } from 'react'
 import { useTheme } from "next-themes"
-import AuthPage from './components/AuthCreator'
+import AuthPage from './components/creator/AuthCreator'
 import Sidebar from './components/Sidebar'
 // import { SelectTheme } from './components/ThemeToggler'
 

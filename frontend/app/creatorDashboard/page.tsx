@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { Home } from "lucide-react";
-import Creator from "../components/creatorDashboard";
+import Creator from "../components/creator/CreatorNavbar";
 import { useTheme } from "next-themes";
-import Dashboard from "../components/Dashboard";
+import Dashboard from "../components/user/UserDashboard";
 import UploadTasks from "../components/UploadTasks";
-import CreateTasks from "../components/CreateTasks";
+// import CreateTasks from "../components/CreateTasks";
 
 function page() {
   const { theme } = useTheme();

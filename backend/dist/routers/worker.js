@@ -75,7 +75,7 @@ router.get("/me", middleware_1.authenticateJwtWorker, (req, res) => __awaiter(vo
         }
     });
     if (user) {
-        res.json({ username: user.username });
+        res.json({ username: user.username, Role: user.role });
     }
     else {
         res.status(403).json({ message: "user not loged in" });

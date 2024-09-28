@@ -2,7 +2,7 @@ import React from 'react'
 
 function page() {
   return (
-    <div>dynamic route</div>
+    <div>uploaded tasks </div>
   )
 }
 

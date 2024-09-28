@@ -65,7 +65,7 @@ router.post("/login" , async(req , res)=>{
         )
 
         res.json({
-            token
+            token 
         })
     }else{
         res.status(401).json("wrong username or password") ; 
@@ -84,7 +84,7 @@ router.get("/me" , authenticateJwtWorker , async(req, res)=>{
     })
 
     if(user){
-        res.json({username : user.username})
+        res.json({username : user.username , Role : user.role})
     }else{
         res.status(403).json({message : "user not loged in"})
     }

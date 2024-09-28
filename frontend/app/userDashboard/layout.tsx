@@ -1,8 +1,8 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import CreatorNavbar from '../components/creator/CreatorNavbar';
+import Creator from '../components/creator/CreatorNavbar';
+import UserNavbar from '../components/user/UserNavbar';
 import Provider from '../provider';
-import { ThemeProvider } from '@/components/theme-provider';
 
 interface Props {
   children: React.ReactNode;
@@ -10,11 +10,11 @@ interface Props {
 
 export default (props: Props) => {
   return (
-      <Provider>
+    <Provider>
     <div className="flex min-h-screen w-full">
-      <CreatorNavbar/>
+      <UserNavbar/>
       <div className="wrapper w-full">{props.children}</div>
     </div>
-      </Provider>
+    </Provider>
   );
 };

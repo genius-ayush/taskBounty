@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,10 +19,15 @@ export default function AuthCreator() {
 
   const { theme } = useTheme();
   const router = useRouter();
+  const token = localStorage.getItem('token') ; 
 
+  
+
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    
     if (isLogin) {
       const response = await axios.post("http://localhost:3000/v1/creator/login", {
         email: email,
