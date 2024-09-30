@@ -9,7 +9,7 @@ import Provider from "@/app/provider";
 const sidebarItems: SidebarItems = {
   links: [
     { label: "Dashboard", href: "/creatorDashboard/Dashboard", icon: LayoutDashboard },
-    { label: "Uploaded Tasks", href: "/creatorDashboard/Uploadtask", icon: CloudUpload },
+    { label: "Uploaded Tasks", href: "/creatorDashboard/Uploadedtask", icon: CloudUpload },
     { label: "Create Task", href: "/creatorDashboard/Createtask", icon: FolderPlus },
   ],
 };

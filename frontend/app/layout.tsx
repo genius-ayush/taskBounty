@@ -3,9 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "./components/Header";
-// import { useTheme } from "next-themes"
 import Navbar from "./components/Navbar";
-import Provider from "./provider";
 
 
 
@@ -31,19 +29,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  let token = null
-  if(typeof window !== 'undefined'){
-    token = localStorage.getItem("token") ; 
-  }
-
-  console.log(token) ; 
 
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <Provider> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -56,7 +47,6 @@ export default function RootLayout({
           <Navbar/>
           </div>
         </ThemeProvider>
-          {/* </Provider> */}
       </body>
     </html>
   );

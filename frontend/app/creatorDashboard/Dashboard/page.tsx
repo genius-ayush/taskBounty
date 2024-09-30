@@ -1,10 +1,15 @@
 
+import Dashboard from "@/app/components/creator/Dashboard"
 
 function page() {
 
   
+
+
+  
   return (
-    <div>Dashboard</div>
+    
+    <Dashboard/>
   )
 }
 

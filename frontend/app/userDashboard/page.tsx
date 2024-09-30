@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 import { Home } from "lucide-react";
 import Creator from "../components/creator/CreatorNavbar";
 import { useTheme } from "next-themes";
-import Dashboard from "../components/user/UserDashboard";
+import Dashboard from "../components/user/Dashboard";
 import UploadTasks from "../components/UploadTasks";
 // import CreateTasks from "../components/CreateTasks";
 
